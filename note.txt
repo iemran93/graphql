@@ -1,0 +1,83 @@
+1054
+
+{
+  user {
+    id
+    login
+    attrs
+    auditRatio
+    xps(order_by: {amount: desc}) {
+      amount
+      originEventId
+      path
+      userId
+    }
+  }
+}
+
+{
+  transaction(order_by: {createdAt: desc}, where: {type: {_eq: "xp"}}) {
+    id
+    path
+    amount
+    userLogin
+  }
+}
+
+{
+    transaction_aggregate(where: { type: { _eq: "xp" } }) {
+    aggregate {
+      sum {
+        amount
+      }
+    }
+  }
+}
+
+// xp amount for each project in each module
+
+{
+  transaction(order_by: {createdAt: desc}, where: {type: {_eq: "xp"}}) {
+    id
+    path
+    amount
+    userLogin
+    originEvent {
+      id
+    }
+  }
+}
+
+// module(event) details
+
+{
+  event(where: {id: {_eq: 20}}) {
+    path
+    object{
+      name
+    }
+    campus
+  }
+}
+
+// grade
+
+{
+  progress(where: { userId: { _eq: 1054 }}) {
+    objectId
+    grade
+    createdAt
+    updatedAt
+    path
+  }
+}
+
+// skills in object
+
+{
+  object(where: {type: {_eq: "project"}}){
+    id
+    name
+    attrs
+  }
+}
