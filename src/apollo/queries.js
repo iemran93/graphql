@@ -1,9 +1,17 @@
 import { gql } from "@apollo/client"
 
-export const getUserId = gql`
+export const getUser = gql`
   {
     user {
       id
+      login
+      attrs
+      auditRatio
+      xps(order_by: { amount: desc }) {
+        amount
+        originEventId
+        path
+      }
     }
   }
 `

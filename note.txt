@@ -72,7 +72,7 @@
   }
 }
 
-// skills in object
+// skills(languages) in object
 
 {
   object(where: {type: {_eq: "project"}}){
