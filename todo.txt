@@ -1,0 +1,3 @@
+- add card: last submited project and its state (fail, pass)
+- graphs:
+    . two grphs idea(XP earned by project, )
