@@ -2,6 +2,8 @@ import { getUser } from "../apollo/queries"
 import { useQuery } from "@apollo/client"
 import { logout } from "../utils/auth"
 import { useNavigate } from "react-router-dom"
+import Card from "./Card"
+import { getXps } from "../utils/helper"
 
 function Profile() {
   const { loading, error, data } = useQuery(getUser)
@@ -31,7 +33,58 @@ function Profile() {
     basic info: user info, audit ratio, xp for each module
   */
   const { attrs, id, login, auditRatio, xps: module_xps } = data.user[0]
-  console.log(id, login, attrs, auditRatio, module_xps)
+  const initials = `${attrs.firstName.charAt(0)}${attrs.lastName.charAt(
+    0
+  )}`.toUpperCase()
+  const { firstName, lastName, email, employment, Degree, gender } = attrs
+  const groupedXps = getXps(module_xps)
+  return (
+    <div className="flex flex-1">
+      <div className="w-1/5 bg-gray-100 p-4 shadow-md">
+        <div className="flex flex-col items-center mb-10">
+          <div className="px-2 py-2 w-30 h-30 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-4xl mb-5">
+            {initials}
+          </div>
+          <h2 className="text-primary text-xl font-semibold m-0">{login}</h2>
+        </div>
+        <div className="grid gap-5 overflow-hidden">
+          {Object.entries({
+            firstName,
+            lastName,
+            email,
+            employment,
+            Degree,
+            gender,
+          }).map(([key, value]) => (
+            <div
+              key={key}
+              className="flex flex-col p-4 bg-gray-200 rounded-lg transition-transform duration-200 hover:-translate-y-1"
+            >
+              <span className="text-xs uppercase tracking-wide text-accent mb-1 font-bold">
+                {key}
+              </span>
+              <span className="text-sm text-primary font-medium">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex-1 p-4">
+        <div className="grid gap-4 mb-6">
+          <Card title="audits ratio" data={{ "%": `${auditRatio}` }} />
+          <Card title="xps" data={groupedXps} />
+        </div>
+        <div className="p-4 bg-white rounded shadow-md">
+          <h2 className="text-lg font-bold mb-4">Graphs</h2>
+          <svg width="100%" height="200">
+            <rect x="10" y="10" width="30" height="100" fill="#3b82f6" />
+            <rect x="50" y="30" width="30" height="80" fill="#3b82f6" />
+            <rect x="90" y="50" width="30" height="60" fill="#3b82f6" />
+          </svg>
+        </div>
+      </div>
+      <div className="graphs--container"></div>
+    </div>
+  )
 }
 
 export default Profile

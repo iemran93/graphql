@@ -10,7 +10,9 @@ export const getUser = gql`
       xps(order_by: { amount: desc }) {
         amount
         originEventId
-        path
+        event {
+          path
+        }
       }
     }
   }
