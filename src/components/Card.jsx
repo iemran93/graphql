@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 function Card(props) {
   /* 
-        title, item (for each item will create on col)
+        title, data (for each item will create on col)
     */
   const columnCount = Object.keys(props.data).length
   return (

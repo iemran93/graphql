@@ -1,3 +1,4 @@
-- add card: last submited project and its state (fail, pass)
+- add card: last submited project ✔️
+- fix audit ratio decimal
 - graphs:
     . two grphs idea(XP earned by project, )

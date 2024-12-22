@@ -17,3 +17,26 @@ export const getUser = gql`
     }
   }
 `
+
+export const getProgress = gql`
+  {
+    progress(order_by: { createdAt: desc }) {
+      grade
+      updatedAt
+      path
+    }
+  }
+`
+
+export const getProgressTime = gql`
+  {
+    transaction(order_by: { amount: asc }, where: { type: { _eq: "xp" } }) {
+      id
+      amount
+      path
+      object {
+        name
+      }
+    }
+  }
+`

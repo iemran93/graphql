@@ -1,30 +1,42 @@
-import { getUser } from "../apollo/queries"
+import { getUser, getProgress } from "../apollo/queries"
 import { useQuery } from "@apollo/client"
 import { logout } from "../utils/auth"
 import { useNavigate } from "react-router-dom"
+import { getXps, getRecent } from "../utils/helper"
 import Card from "./Card"
-import { getXps } from "../utils/helper"
+import Graphs from "./Graphs/Graphs"
 
 function Profile() {
-  const { loading, error, data } = useQuery(getUser)
+  // queries
+  const {
+    loading: userLoading,
+    error: userError,
+    data: userData,
+  } = useQuery(getUser)
+  const {
+    loading: progressLoading,
+    error: progressError,
+    data: progressData,
+  } = useQuery(getProgress)
   const naviagte = useNavigate()
 
   // logout if the JWT is expired and navigate to the login page
 
-  if (loading)
+  if (userLoading || progressLoading)
     return (
       <div className="loaing">
         <p>Loading ...</p>
       </div>
     )
-  if (error) {
-    if (error.message == "Could not verify JWT: JWTExpired") {
+  if (userError || progressError) {
+    if (userError.message == "Could not verify JWT: JWTExpired") {
       logout()
       naviagte("/")
     }
+    const error = userError?.message || progressError?.message
     return (
       <div className="error">
-        <p>{error.message}</p>
+        <p>{error}</p>
       </div>
     )
   }
@@ -32,12 +44,13 @@ function Profile() {
   /* 
     basic info: user info, audit ratio, xp for each module
   */
-  const { attrs, id, login, auditRatio, xps: module_xps } = data.user[0]
+  const { attrs, login, auditRatio, xps: module_xps } = userData.user[0]
   const initials = `${attrs.firstName.charAt(0)}${attrs.lastName.charAt(
     0
   )}`.toUpperCase()
   const { firstName, lastName, email, employment, Degree, gender } = attrs
   const groupedXps = getXps(module_xps)
+  const recentProject = getRecent(progressData.progress[0])
   return (
     <div className="flex flex-1">
       <div className="w-1/5 bg-gray-100 p-4 shadow-md">
@@ -72,14 +85,16 @@ function Profile() {
         <div className="grid gap-4 mb-6">
           <Card title="audits ratio" data={{ "%": `${auditRatio}` }} />
           <Card title="xps" data={groupedXps} />
+          <Card title="recent project" data={recentProject} />
         </div>
         <div className="p-4 bg-white rounded shadow-md">
-          <h2 className="text-lg font-bold mb-4">Graphs</h2>
+          <h2 className="text-lg font-bold mb-4 text-center">Graphs</h2>
           <svg width="100%" height="200">
             <rect x="10" y="10" width="30" height="100" fill="#3b82f6" />
             <rect x="50" y="30" width="30" height="80" fill="#3b82f6" />
             <rect x="90" y="50" width="30" height="60" fill="#3b82f6" />
           </svg>
+          <Graphs />
         </div>
       </div>
       <div className="graphs--container"></div>

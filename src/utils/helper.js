@@ -8,3 +8,13 @@ export function getXps(module_xps) {
     return acc
   }, {})
 }
+
+export function getRecent(progressData) {
+  const grade = parseFloat(progressData.grade.toFixed(2))
+  const updatedAt = progressData.updatedAt.split("T")[0]
+  return {
+    grade: grade,
+    "updated at": updatedAt,
+    path: progressData.path,
+  }
+}
