@@ -18,3 +18,11 @@ export function getRecent(progressData) {
     path: progressData.path,
   }
 }
+
+export function getProgress(progressTime) {
+  console.log(progressTime)
+  const progressTimeData = progressTime.map((item) => {
+    return { amount: item.amount, name: item.object.name }
+  })
+  return progressTimeData
+}

@@ -4,7 +4,7 @@ import { logout } from "../utils/auth"
 import { useNavigate } from "react-router-dom"
 import { getXps, getRecent } from "../utils/helper"
 import Card from "./Card"
-import Graphs from "./Graphs/Graphs"
+import XpProgression from "./Graphs/Graphs"
 
 function Profile() {
   // queries
@@ -24,7 +24,7 @@ function Profile() {
 
   if (userLoading || progressLoading)
     return (
-      <div className="loaing">
+      <div className="loading">
         <p>Loading ...</p>
       </div>
     )
@@ -89,12 +89,7 @@ function Profile() {
         </div>
         <div className="p-4 bg-white rounded shadow-md">
           <h2 className="text-lg font-bold mb-4 text-center">Graphs</h2>
-          <svg width="100%" height="200">
-            <rect x="10" y="10" width="30" height="100" fill="#3b82f6" />
-            <rect x="50" y="30" width="30" height="80" fill="#3b82f6" />
-            <rect x="90" y="50" width="30" height="60" fill="#3b82f6" />
-          </svg>
-          <Graphs />
+          <XpProgression />
         </div>
       </div>
       <div className="graphs--container"></div>
