@@ -4,7 +4,8 @@ import { logout } from "../utils/auth"
 import { useNavigate } from "react-router-dom"
 import { getXps, getRecent } from "../utils/helper"
 import Card from "./Card"
-import XpProgression from "./Graphs/Graphs"
+import XpProgression from "./Graphs/XpProgression"
+import Skills from "./Graphs/Skills"
 
 function Profile() {
   // queries
@@ -90,6 +91,8 @@ function Profile() {
         <div className="p-4 bg-white rounded shadow-md">
           <h2 className="text-lg font-bold mb-4 text-center">Graphs</h2>
           <XpProgression />
+          <Skills dataType="Technical" />
+          <Skills dataType="Technologies" />
         </div>
       </div>
       <div className="graphs--container"></div>

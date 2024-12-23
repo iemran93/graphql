@@ -38,6 +38,7 @@ function XpProgression() {
     background: "#1a1a1a",
     padding: "30px",
     borderRadius: "8px",
+    marginBottom: "10px",
   }
   return (
     <div style={styling}>

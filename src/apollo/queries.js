@@ -40,3 +40,16 @@ export const getProgressTime = gql`
     }
   }
 `
+
+export const getSkills = gql`
+  {
+    transaction_type {
+      type
+      transactions_aggregate {
+        aggregate {
+          count
+        }
+      }
+    }
+  }
+`
