@@ -53,8 +53,8 @@ function Profile() {
   const groupedXps = getXps(module_xps)
   const recentProject = getRecent(progressData.progress[0])
   return (
-    <div className="flex flex-1">
-      <div className="w-1/5 bg-gray-100 p-4 shadow-md">
+    <div className="flex flex-1 my-5">
+      <div className="w-1/5 bg-offBackground p-4 shadow-md">
         <div className="flex flex-col items-center mb-10">
           <div className="px-2 py-2 w-30 h-30 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-4xl mb-5">
             {initials}

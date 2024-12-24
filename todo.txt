@@ -1,4 +1,7 @@
 - add card: last submited project ✔️
 - fix audit ratio decimal
 - graphs:
-    . two grphs idea(XP earned by project, )
+    . two grphs idea(XP earned by project, skills bar chart ✔️)
+- styling
+- add valut
+- enc local storage jwt
