@@ -30,7 +30,15 @@ export const getProgress = gql`
 
 export const getProgressTime = gql`
   {
-    transaction(order_by: { amount: asc }, where: { type: { _eq: "xp" } }) {
+    transaction(
+      order_by: { createdAt: asc }
+      where: {
+        _and: [
+          { type: { _eq: "xp" } }
+          { object: { type: { _eq: "project" } } }
+        ]
+      }
+    ) {
       id
       amount
       path
