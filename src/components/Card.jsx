@@ -6,8 +6,8 @@ function Card(props) {
     */
   const columnCount = Object.keys(props.data).length
   return (
-    <div className="p-4 bg-white rounded shadow-md">
-      <h2 className="text-primary text-xl font-semibold m-0 text-center uppercase">
+    <div className="p-4 bg-background rounded">
+      <h2 className="text-amber-300 text-xl font-semibold m-1 text-center uppercase">
         {props.title}
       </h2>
       <div
@@ -19,12 +19,12 @@ function Card(props) {
         {Object.entries(props.data).map(([key, value]) => (
           <div
             key={key}
-            className="flex flex-col items-center p-2 bg-gray-100 rounded"
+            className="flex flex-col items-center p-2 bg-gradient-to-b from-offBackground to-background rounded"
           >
-            <span className="text-xs uppercase tracking-wide text-accent mb-1">
+            <span className="text-xs uppercase tracking-wide text-amber-200 mb-1">
               {key}
             </span>
-            <span className="text-sm text-primary font-medium">{value}</span>
+            <span className="text-sm text-amber-50 font-medium">{value}</span>
           </div>
         ))}
       </div>

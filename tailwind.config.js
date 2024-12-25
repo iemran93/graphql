@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#1e293b",
-        offBackground: "#161f2e",
+        background: "#161f2e",
+        offBackground: "#1e293b",
+        off2Background: "#28354a",
+        button: "#246396",
+        offButton: "#1b507a",
         primary: "#1D4ED8",
         secondary: "#9333EA",
         accent: "#F59E0B",

@@ -7,11 +7,38 @@ export const getUser = gql`
       login
       attrs
       auditRatio
-      xps(order_by: { amount: desc }) {
+      xps(
+        order_by: { amount: desc }
+        where: { event: { object: { type: { _in: ["module", "piscine"] } } } }
+      ) {
         amount
         originEventId
         event {
           path
+          object {
+            type
+          }
+        }
+      }
+    }
+  }
+`
+
+export const getXps = gql`
+  {
+    transaction(
+      where: {
+        _and: [
+          { type: { _eq: "xp" } }
+          { event: { object: { type: { _in: ["module", "piscine"] } } } }
+        ]
+      }
+    ) {
+      amount
+      event {
+        object {
+          name
+          type
         }
       }
     }

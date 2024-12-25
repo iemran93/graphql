@@ -56,8 +56,8 @@ function Login() {
     <div>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-          focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          className="w-full bg-offBackground px-4 py-2 border border-gray-700  rounded-lg 
+          focus:border-button outline-none transition-all text-white"
           type="text"
           placeholder="Username/Email"
           name="username"
@@ -66,8 +66,8 @@ function Login() {
           required
         />
         <input
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-          focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          className="w-full bg-offBackground px-4 py-2 border border-gray-700 rounded-lg 
+          focus:border-button outline-none transition-all text-white"
           type="password"
           placeholder="Password"
           name="password"
@@ -77,7 +77,7 @@ function Login() {
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors"
+          className="w-full bg-button hover:bg-offButton text-white font-medium py-2.5 rounded-lg transition-colors"
         >
           Login
         </button>

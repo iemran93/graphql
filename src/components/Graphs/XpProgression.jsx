@@ -35,14 +35,16 @@ function XpProgression() {
   const styling = {
     width: "100%",
     height: 400,
-    background: "#1a1a1a",
+    background: "#161f2e",
     padding: "30px",
     borderRadius: "8px",
     marginBottom: "10px",
   }
   return (
     <div style={styling}>
-      <h2 style={{ color: "#fff", marginBottom: "10px", textAlign: "center" }}>
+      <h2
+        style={{ color: "#fde68a", marginBottom: "10px", textAlign: "center" }}
+      >
         XP Progression
       </h2>
       <ResponsiveContainer width="100%" height="100%">

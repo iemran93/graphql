@@ -44,10 +44,13 @@ function Skills({ dataType }) {
     padding: "30px",
     borderRadius: "8px",
     marginBottom: "10px",
+    backgroundColor: "#161f2e",
   }
   return (
     <div style={styling}>
-      <h2 style={{ color: "#fff", marginBottom: "10px", textAlign: "center" }}>
+      <h2
+        style={{ color: "#fde68a", marginBottom: "10px", textAlign: "center" }}
+      >
         {`${dataType} Skills`}
       </h2>
       <ResponsiveContainer width="100%" height="100%">
