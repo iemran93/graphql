@@ -4,5 +4,5 @@
     . two grphs idea(XP earned by project, skills bar chart ✔️)
 - styling ✔️
 - enc local storage jwt
-- get correct skills data
+- get correct skills data ✔️
 - do hosting

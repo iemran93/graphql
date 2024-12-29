@@ -30,14 +30,10 @@ export function getSkillsData(skills) {
     skills
       .map((item) => {
         let count = item.transactions_aggregate.aggregate.count
-        const existingSkill = referenceList.find(
-          (skill) => skill.type === item.type
-        )
-        if (existingSkill && count > 0) {
+        if (referenceList.includes(item.type) && count > 0) {
           return {
             type: item.type.split("_")[1].toUpperCase(),
             count: count,
-            max: existingSkill.max,
           }
         }
       })

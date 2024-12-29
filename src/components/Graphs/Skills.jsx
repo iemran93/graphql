@@ -36,7 +36,9 @@ function Skills({ dataType }) {
   )
   const graphData =
     dataType == "Technical" ? technicalSkillsData : technologiessData
-
+  graphData.sort((a, b) => {
+    return b.count - a.count
+  })
   const styling = {
     width: "100%",
     height: 500,
@@ -68,8 +70,7 @@ function Skills({ dataType }) {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="count" fill="#8884d8" name="Completed" />
-          <Bar dataKey="max" fill="#82ca9d" name="Maximum" />
+          <Bar dataKey="count" fill="#8884d2" name="Completed" />
         </BarChart>
       </ResponsiveContainer>
     </div>
