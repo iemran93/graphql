@@ -9,7 +9,7 @@ export function getXpsGrouped(module_xps) {
 }
 
 export function getRecent(progressData) {
-  const grade = parseFloat(progressData.grade.toFixed(2))
+  const grade = parseFloat(progressData.grade?.toFixed(2))
   const updatedAt = progressData.updatedAt.split("T")[0]
   return {
     grade: grade,
