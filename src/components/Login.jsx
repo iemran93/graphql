@@ -36,7 +36,7 @@ function Login() {
       console.log(result)
       setToken(result)
       setTimeout(() => {
-        navigate("/")
+        window.location.href = "/"
       }, 2000)
     } else {
       /* 
