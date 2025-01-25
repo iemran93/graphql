@@ -19,7 +19,7 @@ function App() {
   const handleLogout = () => {
     logout()
     setIsLogged(false)
-    window.location.href = "/login"
+    window.location.href = "/"
   }
 
   // for not access login page by logged user
