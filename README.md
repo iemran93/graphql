@@ -1,31 +1,25 @@
-- suggested folder structure:
+### Graphql
+Profile page for 01edu (reboot) student. The goal of this project is
+to learn and apply the Graphql by creating a dynamic profile page.
+This project involves querying data from a Graphql API, designing a
+user-friendly interface, implementing authentication, and hosting the
+final product.
 
-graphql-project/
-├── public/                # Public assets (e.g., favicon, static images)
-├── src/                   # Main source folder
-│   ├── apollo/            # Apollo Client setup
-│   │   └── apollo-client.js
-│   ├── components/        # Reusable UI components
-│   │   ├── Profile.jsx
-│   │   ├── Login.jsx
-│   │   └── Graphs/        # Subfolder for graph-related components
-│   │       ├── XPGraph.jsx
-│   │       └── StatsGraph.jsx
-│   ├── graphql/           # GraphQL queries, mutations, and fragments
-│   │   ├── queries.js
-│   │   ├── mutations.js
-│   │   └── fragments.js
-│   ├── pages/             # Page components (used with routing)
-│   │   ├── HomePage.jsx
-│   │   └── LoginPage.jsx
-│   ├── styles/            # CSS or styling files
-│   │   └── App.css
-│   ├── utils/             # Utility functions or helpers
-│   │   └── auth.js        # E.g., JWT management
-│   ├── App.jsx            # Main application component
-│   ├── main.jsx           # Entry point of the application
-│   └── index.css          # Global CSS
-├── .env                   # Environment variables (e.g., API URL)
-├── package.json           # Project dependencies
-├── vite.config.js         # Vite configuration
-└── README.md              # Project documentation
+### Usage
+1. clone the repo:
+```
+git clone https://learn.reboot01.com/git/emarei/graphql.git
+```
+2. install the packages:
+```
+npm install
+```
+3. if Apollo package not installed, run:
+```
+npm install @apollo/client
+```
+4. run the development server:
+```
+npm run dev
+```
+5. acess the site on localhost:5173
