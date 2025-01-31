@@ -16,7 +16,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(uname, pass)
     /* 
             make a POST request to the api to validate the data (base64 encoding)
             and retreive the JWT
@@ -33,7 +32,6 @@ function Login() {
     const result = await res.json()
     if (res.ok) {
       setToast({ msg: "Logged in", status: "success" })
-      console.log(result)
       setToken(result)
       setTimeout(() => {
         window.location.href = "/"
@@ -44,7 +42,6 @@ function Login() {
         */
       const err = result.error
       setToast({ msg: err, status: "error" })
-      console.log(err)
     }
   }
 
