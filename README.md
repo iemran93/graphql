@@ -22,4 +22,4 @@ npm install @apollo/client
 ```
 npm run dev
 ```
-5. acess the site on localhost:5173
+5. access the site on localhost:5173
